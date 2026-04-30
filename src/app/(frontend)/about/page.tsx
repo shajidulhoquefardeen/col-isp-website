@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { 
   Users, 
   Target, 
@@ -59,9 +60,13 @@ export default function AboutPage() {
           </div>
           <div className="hidden flex-1 md:block">
             <div className="relative aspect-video overflow-hidden rounded-2xl bg-muted shadow-2xl">
-              <div className="absolute inset-0 flex items-center justify-center bg-primary/5">
-                <Globe className="h-32 w-32 animate-pulse text-primary/10" />
-              </div>
+              <Image
+                src="/images/about-col.jpg"
+                alt="Chittagong Online Limited Office"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
             </div>
           </div>
         </div>
