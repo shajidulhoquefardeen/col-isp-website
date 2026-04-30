@@ -121,7 +121,7 @@ export default async function ForEnterprisePage() {
             {[1, 2, 3].map((set) => (
               <div key={set} className="flex items-center gap-20 px-10">
                 {CLIENT_LOGOS.map((logo, index) => (
-                  <div key={index} className="relative h-12 w-32 flex-shrink-0 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                  <div key={index} className="relative h-12 w-32 flex-shrink-0 opacity-80 hover:opacity-100 transition-opacity duration-300">
                     <Image
                       src={logo}
                       alt="Client Logo"
