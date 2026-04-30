@@ -72,11 +72,11 @@ export default async function CareerPage() {
             Join Chittagong's leading ISP. We're looking for passionate problem-solvers to help us connect homes, empower businesses, and shape the digital landscape of Bangladesh.
           </p>
           <div className="mt-10 flex justify-center">
-            <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 rounded-full px-8 shadow-lg shadow-accent/20">
-              <Link href="#openings" className="flex flex-row items-center justify-center gap-2">
+            <Link href="#openings">
+              <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 flex flex-row items-center justify-center gap-2">
                 View Openings <ArrowDown className="h-5 w-5" />
-              </Link>
-            </Button>
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
