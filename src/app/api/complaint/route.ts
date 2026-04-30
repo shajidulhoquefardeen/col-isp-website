@@ -8,15 +8,20 @@ export async function POST(req: Request) {
     const GOOGLE_SCRIPT_URL = process.env.GOOGLE_SHEET_WEBHOOK_URL;
 
     if (!GOOGLE_SCRIPT_URL) {
-      console.warn("GOOGLE_SHEET_WEBHOOK_URL is not defined in environment variables.");
-      // For now, we'll return success to allow the UI to work, but log it.
-      return NextResponse.json({ success: true, message: "Local mock success (missing URL)" });
+      console.error("CRITICAL: GOOGLE_SHEET_WEBHOOK_URL is not defined.");
+      return NextResponse.json(
+        { success: false, message: "Webhook URL not configured" },
+        { status: 500 }
+      );
     }
+
+    console.log("Forwarding complaint to Google Sheets...");
 
     const response = await fetch(GOOGLE_SCRIPT_URL, {
       method: "POST",
+      redirect: "follow",
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "text/plain;charset=utf-8",
       },
       body: JSON.stringify({
         ...data,
@@ -25,14 +30,17 @@ export async function POST(req: Request) {
     });
 
     if (!response.ok) {
-      throw new Error("Failed to submit to Google Sheets");
+      const errorText = await response.text();
+      console.error("Google Sheets API Error:", errorText);
+      throw new Error(`Google Script returned ${response.status}`);
     }
 
+    console.log("Complaint successfully synced with Google Sheets.");
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error("Complaint Submission Error:", error);
+    console.error("Detailed Complaint Submission Error:", error);
     return NextResponse.json(
-      { success: false, message: "Internal Server Error" },
+      { success: false, message: "Failed to sync with Google Sheets" },
       { status: 500 }
     );
   }
