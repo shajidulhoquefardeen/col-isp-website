@@ -10,9 +10,18 @@ import {
   Briefcase
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle, CardFooter, CardDescription } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { client } from "@/sanity/lib/client";
+
+interface CareerJob {
+  _id: string;
+  title: string;
+  department: string;
+  location: string;
+  employmentType: string;
+  slug: string;
+}
 
 export const revalidate = 0;
 
@@ -69,7 +78,7 @@ export default async function CareerPage() {
             Build the Future of <span className="text-accent">Connectivity</span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-primary-foreground/80 md:text-xl">
-            Join Chittagong's leading ISP. We're looking for passionate problem-solvers to help us connect homes, empower businesses, and shape the digital landscape of Bangladesh.
+            Join Chittagong&apos;s leading ISP. We&apos;re looking for passionate problem-solvers to help us connect homes, empower businesses, and shape the digital landscape of Bangladesh.
           </p>
           <div className="mt-10 flex justify-center">
             <Link href="#openings">
@@ -120,7 +129,7 @@ export default async function CareerPage() {
         
         <div className="flex flex-col gap-4">
           {liveJobs.length > 0 ? (
-            liveJobs.map((job: any) => (
+            liveJobs.map((job: CareerJob) => (
               <Card key={job._id} className="group overflow-hidden border-border/60 dark:border-slate-700 bg-white dark:bg-slate-800 transition-all hover:border-primary/30 hover:shadow-lg sm:flex sm:items-center sm:justify-between">
                 <div className="flex-1 p-6 sm:p-8">
                   <div className="flex flex-wrap items-center gap-3 mb-3">
@@ -164,13 +173,13 @@ export default async function CareerPage() {
       <section className="container mx-auto px-4">
         <Card className="border-accent/20 bg-accent/5 text-center shadow-none">
           <CardContent className="py-12">
-            <h3 className="font-heading text-2xl font-bold text-primary">Don't see a perfect fit?</h3>
+            <h3 className="font-heading text-2xl font-bold text-primary">Don&apos;t see a perfect fit?</h3>
             <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
-              We're always looking for talented individuals. Send your resume to{" "}
+              We&apos;re always looking for talented individuals. Send your resume to{" "}
               <a href="mailto:careers@col.net.bd" className="font-medium text-accent hover:underline underline-offset-4">
                 careers@col.net.bd
               </a>{" "}
-              and we'll keep you in mind for future roles.
+              and we&apos;ll keep you in mind for future roles.
             </p>
           </CardContent>
         </Card>

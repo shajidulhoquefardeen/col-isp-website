@@ -66,7 +66,6 @@ export function PackageGrid({ packages }: PackageGridProps) {
       <div className="grid gap-8 grid-cols-1 md:grid-cols-3">
         {displayedPackages.map((pkg, index) => {
           const isHome = pkg.category.toLowerCase() === "home";
-          const isEnterprise = pkg.category.toLowerCase() === "enterprise";
 
           return (
             <Card

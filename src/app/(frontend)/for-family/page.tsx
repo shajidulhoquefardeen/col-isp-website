@@ -1,18 +1,11 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import { CheckCircle2, PhoneCall } from "lucide-react";
+import { PhoneCall } from "lucide-react";
 import { TestimonialCarousel } from "@/components/sections/TestimonialCarousel";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
-import { PackageGrid, PackageType } from "@/components/sections/PackageGrid";
+import { PackageGrid } from "@/components/sections/PackageGrid";
 import { client } from "@/sanity/lib/client";
 
 export const metadata: Metadata = {

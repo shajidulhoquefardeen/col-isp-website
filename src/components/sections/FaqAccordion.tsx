@@ -21,7 +21,7 @@ export function FaqAccordion({ title, faqs }: FaqAccordionProps) {
   return (
     <div className="max-w-7xl mx-auto w-full px-4 lg:px-8">
       <h2 className="font-heading text-3xl font-bold text-[#051d40] dark:text-white mb-8 text-center">{title}</h2>
-      <Accordion type="single" collapsible className="w-full">
+      <Accordion className="w-full">
         {faqs.map((faq, i) => (
           <AccordionItem 
             key={i} 

@@ -55,7 +55,7 @@ export function QuickContactGrid() {
   return (
     <div className="w-full max-w-4xl mx-auto py-12 px-4 sm:px-6">
       <h2 className="text-3xl font-bold text-[#051d40] text-center mb-8 font-heading">
-        We're Here to Help
+        We&apos;re Here to Help
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
         {CONTACT_METHODS.map((method, index) => {

@@ -1,8 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { MessageSquareQuote } from "lucide-react";
 import Autoplay from "embla-carousel-autoplay";
-import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
   CarouselContent,
@@ -41,10 +41,11 @@ export function TestimonialCarousel({ title, testimonials }: TestimonialCarousel
                 {/* Left Column (Customer Photo) */}
                 {testimonial.imageUrl && (
                   <div className="w-full md:w-[30%] relative min-h-[300px] aspect-square">
-                    <img 
+                    <Image 
                       src={testimonial.imageUrl} 
                       alt={testimonial.customerName} 
-                      className="absolute inset-0 w-full h-full object-cover" 
+                      fill
+                      className="object-cover" 
                     />
                   </div>
                 )}

@@ -41,7 +41,7 @@ export default function WifiZonesPage() {
             Free Wi-Fi Zones
           </h1>
           <p className="mt-4 text-lg text-white/80 max-w-2xl mx-auto">
-            Stay connected on the go. Find COL's high-speed public Wi-Fi access points across major hubs in Chittagong.
+            Stay connected on the go. Find COL&apos;s high-speed public Wi-Fi access points across major hubs in Chittagong.
           </p>
         </div>
       </section>

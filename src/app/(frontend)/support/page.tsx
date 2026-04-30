@@ -54,7 +54,7 @@ export default function SupportPage() {
             Help & Support
           </h1>
           <p className="mt-4 text-lg text-white/80 max-w-2xl mx-auto">
-            Get in touch with our team or raise a service request. We're here 24/7 to keep you connected.
+            Get in touch with our team or raise a service request. We&apos;re here 24/7 to keep you connected.
           </p>
         </div>
       </section>

@@ -44,8 +44,9 @@ export function HeroCarousel({ heroImages }: HeroCarouselProps) {
   useEffect(() => {
     if (!emblaApi) return;
     emblaApi.on("select", onSelect);
-    onSelect();
+    const id = requestAnimationFrame(() => onSelect());
     return () => {
+      cancelAnimationFrame(id);
       emblaApi.off("select", onSelect);
     };
   }, [emblaApi, onSelect]);
