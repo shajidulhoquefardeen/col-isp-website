@@ -55,6 +55,23 @@ const FAQS = [
   },
 ];
 
+const CLIENT_LOGOS = [
+  "/images/clients/bangladesh-police.png",
+  "/images/clients/ccc.png",
+  "/images/clients/chittagong-club.png",
+  "/images/clients/ciu.png",
+  "/images/clients/bsrm.png",
+  "/images/clients/edu.jpg",
+  "/images/clients/kds.png",
+  "/images/clients/ken-park.png",
+  "/images/clients/lankabangla.png",
+  "/images/clients/mas-intimates.png",
+  "/images/clients/premier-university.png",
+  "/images/clients/cu.png",
+  "/images/clients/youngone.jpg",
+  "/images/clients/4h-group.jpg",
+];
+
 export default async function ForEnterprisePage() {
   const testimonials = await client.fetch(
     `*[_type == "testimonial" && "enterprise" in displayPage] {
@@ -95,19 +112,24 @@ export default async function ForEnterprisePage() {
 
       {/* 2. Trusted Brands Marquee */}
       <section className="border-y border-border/40 bg-muted/50 py-10 overflow-hidden">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mb-6 text-center text-sm font-medium text-muted-foreground uppercase tracking-wider">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mb-8 text-center text-sm font-medium text-muted-foreground uppercase tracking-wider">
           Trusted By Industry Leaders
         </div>
         <div className="relative flex w-full">
-          <div className="flex w-fit animate-[marquee-right_30s_linear_infinite]">
+          <div className="flex w-fit animate-[marquee-right_50s_linear_infinite]">
             {/* Duplicated 3 times for seamless scrolling */}
             {[1, 2, 3].map((set) => (
-              <div key={set} className="flex items-center gap-16 px-8">
-                <span className="text-2xl font-bold text-muted-foreground/40 font-heading">TECHCORP</span>
-                <span className="text-2xl font-bold text-muted-foreground/40 font-heading">FINANCEBD</span>
-                <span className="text-2xl font-bold text-muted-foreground/40 font-heading">PORTLOGISTICS</span>
-                <span className="text-2xl font-bold text-muted-foreground/40 font-heading">GLOBALNET</span>
-                <span className="text-2xl font-bold text-muted-foreground/40 font-heading">APEX</span>
+              <div key={set} className="flex items-center gap-20 px-10">
+                {CLIENT_LOGOS.map((logo, index) => (
+                  <div key={index} className="relative h-12 w-32 flex-shrink-0 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                    <Image
+                      src={logo}
+                      alt="Client Logo"
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+                ))}
               </div>
             ))}
           </div>
