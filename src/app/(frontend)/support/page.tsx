@@ -39,10 +39,26 @@ export default function SupportPage() {
   });
 
   const onSubmit = async (data: ComplaintFormValues) => {
-    // Dummy submission handler
-    console.log("Form Data:", data);
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    alert("Complaint submitted successfully! We will get back to you soon.");
+    try {
+      const response = await fetch("/api/complaint", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        alert("Complaint submitted successfully! We will get back to you soon.");
+      } else {
+        alert("Something went wrong. Please try again or contact us directly.");
+      }
+    } catch (error) {
+      console.error("Submission error:", error);
+      alert("Network error. Please check your connection and try again.");
+    }
   };
 
   return (
