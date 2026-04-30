@@ -135,7 +135,7 @@ export function PackagesOverview() {
             <div className="w-full md:w-[55%]">
               <div className="relative aspect-video w-full">
                 <Image
-                  src="/images/packages/cor.png"
+                  src="/images/packages/enterprise-solutions.png"
                   alt="Enterprise Solutions"
                   fill
                   className="w-full h-full object-cover rounded-2xl shadow-2xl shadow-blue-900/10"
